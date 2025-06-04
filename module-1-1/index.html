@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Productivity Crisis - Module 1.1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .slide {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            display: none;
+            animation: slideIn 0.5s ease-out;
+        }
+        
+        .slide.active {
+            display: block;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .slide h2 {
+            color: #4a5568;
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #667eea;
+            padding-bottom: 10px;
+        }
+        
+        .intro-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            transform: scale(1);
+            transition: transform 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .stat-number {
+            font-size: 3em;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .interactive-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+            border-left: 5px solid #667eea;
+        }
+        
+        .stress-meter {
+            margin: 30px 0;
+        }
+        
+        .stress-scale {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px 0;
+            background: #e2e8f0;
+            border-radius: 25px;
+            padding: 10px;
+        }
+        
+        .stress-level {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: white;
+        }
+        
+        .stress-level:nth-child(1), .stress-level:nth-child(2) { background: #10b981; }
+        .stress-level:nth-child(3), .stress-level:nth-child(4) { background: #f59e0b; }
+        .stress-level:nth-child(5), .stress-level:nth-child(6) { background: #f97316; }
+        .stress-level:nth-child(7), .stress-level:nth-child(8) { background: #ef4444; }
+        .stress-level:nth-child(9), .stress-level:nth-child(10) { background: #dc2626; }
+        
+        .stress-level:hover, .stress-level.selected {
+            transform: scale(1.2);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .open-loops-counter {
+            text-align: center;
+            margin: 30px 0;
+        }
+        
+        .counter-display {
+            font-size: 4em;
+            font-weight: bold;
+            color: #667eea;
+            margin: 20px 0;
+        }
+        
+        .counter-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .btn:hover {
+            background: #5a67d8;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        }
+        
+        .btn-secondary {
+            background: #718096;
+            box-shadow: 0 4px 15px rgba(113, 128, 150, 0.4);
+        }
+        
+        .btn-secondary:hover {
+            background: #4a5568;
+            box-shadow: 0 6px 20px rgba(113, 128, 150, 0.6);
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+        }
+        
+        .progress-bar {
+            flex-grow: 1;
+            margin: 0 20px;
+            background: #e2e8f0;
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transition: width 0.3s ease;
+        }
+        
+        .reflection-box {
+            margin: 30px 0;
+        }
+        
+        .reflection-box textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 1em;
+            resize: vertical;
+            transition: border-color 0.3s ease;
+        }
+        
+        .reflection-box textarea:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .insight-box {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .insight-box::before {
+            content: '💡';
+            font-size: 3em;
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            opacity: 0.3;
+        }
+        
+        .slide-counter {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        
+        .takeaway-highlight {
+            background: #fef5e7;
+            border: 2px solid #f6ad55;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            position: relative;
+        }
+        
+        .takeaway-highlight::before {
+            content: '🎯';
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+        
+        .emoji-scale {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            font-size: 2em;
+        }
+        
+        .emoji-option {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            padding: 10px;
+            border-radius: 50%;
+        }
+        
+        .emoji-option:hover, .emoji-option.selected {
+            transform: scale(1.3);
+            background: rgba(102, 126, 234, 0.1);
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-counter">
+        <span id="currentSlide">1</span> / <span id="totalSlides">7</span>
+    </div>
+    
+    <div class="container">
+        <div class="header">
+            <h1>The Productivity Crisis</h1>
+            <p>Understanding Why Traditional Email Management Fails</p>
+        </div>
+
+        <!-- Slide 1: Welcome & Hook -->
+        <div class="slide active" id="slide1">
+            <h2>Welcome to Your Productivity Transformation</h2>
+            <div class="intro-stats">
+                <div class="stat-card">
+                    <span class="stat-number">121</span>
+                    <p>Average emails received per day</p>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">2.5hrs</span>
+                    <p>Daily time spent on email</p>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">67%</span>
+                    <p>Of people check email outside work hours</p>
+                </div>
+            </div>
+            
+            <div class="insight-box">
+                <h3>Here's the Problem...</h3>
+                <p>We're drowning in information but starving for productivity. The old rules don't work anymore, and most people are fighting a losing battle against their inbox.</p>
+            </div>
+            
+            <p style="font-size: 1.2em; text-align: center; margin-top: 30px;">
+                Ready to discover why your current system isn't working? Let's dive in...
+            </p>
+        </div>
+
+        <!-- Slide 2: The Shift from Clear to Unclear Work -->
+        <div class="slide" id="slide2">
+            <h2>When Work Had Clear Boundaries</h2>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin: 30px 0;">
+                <div style="text-align: center;">
+                    <h3 style="color: #10b981; margin-bottom: 20px;">The Old Days</h3>
+                    <div style="font-size: 3em; margin-bottom: 20px;">🚜</div>
+                    <ul style="text-align: left; font-size: 1.1em; line-height: 1.8;">
+                        <li>Fields were to be plowed</li>
+                        <li>Machines to be tooled</li>
+                        <li>Boxes to be packed</li>
+                        <li>Cows to be milked</li>
+                        <li>Crates to be moved</li>
+                    </ul>
+                    <p style="margin-top: 20px; font-weight: bold; color: #10b981;">You could SEE the work. You KNEW when it was done.</p>
+                </div>
+                
+                <div style="text-align: center;">
+                    <h3 style="color: #ef4444; margin-bottom: 20px;">Today's Reality</h3>
+                    <div style="font-size: 3em; margin-bottom: 20px;">💻</div>
+                    <ul style="text-align: left; font-size: 1.1em; line-height: 1.8;">
+                        <li>Endless email threads</li>
+                        <li>Vague project requests</li>
+                        <li>Multiple priorities</li>
+                        <li>Unclear deadlines</li>
+                        <li>Constant interruptions</li>
+                    </ul>
+                    <p style="margin-top: 20px; font-weight: bold; color: #ef4444;">NO CLEAR EDGES to most projects</p>
+                </div>
+            </div>
+            
+            <div class="takeaway-highlight">
+                <strong>Key Insight:</strong> Modern knowledge work lacks the clear boundaries that made traditional work satisfying and manageable.
+            </div>
+        </div>
+
+        <!-- Slide 3: The Mental Cost -->
+        <div class="slide" id="slide3">
+            <h2>Your Brain on "Open Loops"</h2>
+            
+            <div class="interactive-section">
+                <h3>🧠 What's an "Open Loop"?</h3>
+                <p style="font-size: 1.2em; margin-bottom: 20px;">Any commitment, task, or project that's incomplete and living in your head</p>
+                
+                <div style="background: white; padding: 20px; border-radius: 10px; margin: 20px 0;">
+                    <h4>Examples of Open Loops:</h4>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 15px;">
+                        <ul>
+                            <li>"I need to respond to Sarah's email"</li>
+                            <li>"Must book that dentist appointment"</li>
+                            <li>"The quarterly report is due soon"</li>
+                            <li>"Should call Mom this weekend"</li>
+                        </ul>
+                        <ul>
+                            <li>"Need to update my LinkedIn profile"</li>
+                            <li>"That meeting follow-up from Tuesday"</li>
+                            <li>"Fix the printer in the office"</li>
+                            <li>"Plan team building event"</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="insight-box">
+                <h3>Why Open Loops Destroy Productivity</h3>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 20px;">
+                    <div>
+                        <h4>1. They Eat Mental RAM</h4>
+                        <p>Your brain constantly uses energy remembering and tracking incomplete items</p>
+                    </div>
+                    <div>
+                        <h4>2. They Create Instant Stress</h4>
+                        <p>Your psyche thinks you should be doing ALL of them at every moment</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="takeaway-highlight">
+                <strong>Reality Check:</strong> As soon as you have two things to do kept in mind, you've created instant and automatic stress and failure, because you can't do them both at once.
+            </div>
+        </div>
+
+        <!-- Slide 4: Interactive Assessment - Open Loops Counter -->
+        <div class="slide" id="slide4">
+            <h2>🎯 Interactive Exercise: Count Your Open Loops</h2>
+            
+            <div class="interactive-section">
+                <p style="font-size: 1.2em; text-align: center; margin-bottom: 30px;">
+                    Let's discover how many open loops are currently consuming your mental energy
+                </p>
+                
+                <div class="open-loops-counter">
+                    <h3>How many incomplete tasks/commitments are in your head right now?</h3>
+                    <div class="counter-display" id="openLoopsCount">0</div>
+                    
+                    <div class="counter-buttons">
+                        <button class="btn" onclick="adjustCount(-1)">- Remove</button>
+                        <button class="btn" onclick="adjustCount(1)">+ Add One</button>
+                        <button class="btn btn-secondary" onclick="resetCount()">Reset</button>
+                    </div>
+                    
+                    <div id="countFeedback" class="hidden fade-in" style="margin-top: 30px;">
+                        <!-- Dynamic feedback will appear here -->
+                    </div>
+                </div>
+                
+                <div class="reflection-box">
+                    <h4>Quick Brainstorm - List them out:</h4>
+                    <textarea id="openLoopsList" placeholder="Write down all the incomplete tasks/commitments that just popped into your head...
+
+Examples:
+- Respond to John's email about the budget
+- Schedule dentist appointment  
+- Finish the quarterly report
+- Plan weekend family activity
+- Update project timeline
+- Call insurance company about claim
+- Organize desk/workspace
+- etc."></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Stress Level Assessment -->
+        <div class="slide" id="slide5">
+            <h2>📊 Rate Your Current Email Stress Level</h2>
+            
+            <div class="interactive-section">
+                <div class="stress-meter">
+                    <h3 style="text-align: center; margin-bottom: 20px;">On a scale of 1-10, how stressed does email make you feel?</h3>
+                    
+                    <div class="stress-scale">
+                        <div class="stress-level" data-level="1" onclick="selectStressLevel(1)">1</div>
+                        <div class="stress-level" data-level="2" onclick="selectStressLevel(2)">2</div>
+                        <div class="stress-level" data-level="3" onclick="selectStressLevel(3)">3</div>
+                        <div class="stress-level" data-level="4" onclick="selectStressLevel(4)">4</div>
+                        <div class="stress-level" data-level="5" onclick="selectStressLevel(5)">5</div>
+                        <div class="stress-level" data-level="6" onclick="selectStressLevel(6)">6</div>
+                        <div class="stress-level" data-level="7" onclick="selectStressLevel(7)">7</div>
+                        <div class="stress-level" data-level="8" onclick="selectStressLevel(8)">8</div>
+                        <div class="stress-level" data-level="9" onclick="selectStressLevel(9)">9</div>
+                        <div class="stress-level" data-level="10" onclick="selectStressLevel(10)">10</div>
+                    </div>
+                    
+                    <div style="display: flex; justify-content: space-between; font-size: 0.9em; color: #666; margin-top: 10px;">
+                        <span>😌 Completely Calm</span>
+                        <span>😰 Completely Overwhelmed</span>
+                    </div>
+                    
+                    <div id="stressLevelFeedback" class="hidden fade-in" style="margin-top: 30px;">
+                        <!-- Dynamic feedback will appear here -->
+                    </div>
+                </div>
+                
+                <div class="emoji-scale" style="margin-top: 40px;">
+                    <div style="text-align: center;">
+                        <h4>How do you feel when you see your inbox?</h4>
+                        <div style="margin: 20px 0;">
+                            <span class="emoji-option" data-feeling="excited" onclick="selectFeeling('excited')">🤗</span>
+                            <span class="emoji-option" data-feeling="neutral" onclick="selectFeeling('neutral')">😐</span>
+                            <span class="emoji-option" data-feeling="anxious" onclick="selectFeeling('anxious')">😰</span>
+                            <span class="emoji-option" data-feeling="overwhelmed" onclick="selectFeeling('overwhelmed')">😵</span>
+                        </div>
+                        <div id="feelingFeedback" class="hidden fade-in">
+                            <!-- Dynamic feedback will appear here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: The Solution Preview -->
+        <div class="slide" id="slide6">
+            <h2>💡 The Foundation of True Productivity</h2>
+            
+            <div class="insight-box">
+                <h3>The GTD Core Principle</h3>
+                <p style="font-size: 1.3em; text-align: center; margin: 20px 0;">
+                    "Your ability to generate power is directly proportional to your ability to relax."
+                </p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin: 40px 0;">
+                <div style="text-align: center;">
+                    <div style="font-size: 4em; margin-bottom: 20px;">🧠</div>
+                    <h3 style="color: #ef4444;">The Problem</h3>
+                    <p>Your mind trying to remember everything creates constant background stress and reduces your ability to focus on what's actually important.</p>
+                </div>
+                
+                <div style="text-align: center;">
+                    <div style="font-size: 4em; margin-bottom: 20px;">🗂️</div>
+                    <h3 style="color: #10b981;">The Solution</h3>
+                    <p>Use an external, trusted system to capture and organize all your commitments, freeing your mind to focus on execution.</p>
+                </div>
+            </div>
+            
+            <div class="takeaway-highlight">
+                <strong>Key Insight:</strong> To have a clear mind, you must use an external system to dump all those open loops and reliably keep track of them.
+            </div>
+            
+            <div style="background: #f8f9fa; padding: 30px; border-radius: 10px; margin: 30px 0;">
+                <h3>What This Means for You</h3>
+                <ul style="font-size: 1.1em; line-height: 1.8;">
+                    <li>No more mental juggling of tasks and commitments</li>
+                    <li>Reduced anxiety about forgetting important items</li>
+                    <li>Increased focus and productivity during work time</li>
+                    <li>Better work-life balance and peace of mind</li>
+                    <li>Confidence in your ability to handle any workload</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 7: Module Wrap-up and Next Steps -->
+        <div class="slide" id="slide7">
+            <h2>🎯 Module 1.1 Key Takeaways</h2>
+            
+            <div class="takeaway-highlight">
+                <h3>Your Main Takeaway</h3>
+                <p style="font-size: 1.2em; margin: 15px 0;">
+                    <strong>"Your ability to generate power is directly proportional to your ability to relax."</strong>
+                </p>
+                <p>True productivity comes from having a clear mind, which requires getting everything out of your head and into a trusted external system.</p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 30px 0;">
+                <div style="background: #f0f9ff; padding: 25px; border-radius: 10px; border-left: 5px solid #3b82f6;">
+                    <h4>✅ What You've Learned</h4>
+                    <ul>
+                        <li>Why modern work feels overwhelming</li>
+                        <li>The mental cost of "open loops"</li>
+                        <li>Why traditional email management fails</li>
+                        <li>The foundation of GTD methodology</li>
+                    </ul>
+                </div>
+                
+                <div style="background: #f0fdf4; padding: 25px; border-radius: 10px; border-left: 5px solid #10b981;">
+                    <h4>🚀 Coming Up Next</h4>
+                    <ul>
+                        <li>The 5 GTD pillars explained</li>
+                        <li>How Outlook fits into GTD</li>
+                        <li>Setting realistic expectations</li>
+                        <li>Your productivity transformation plan</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="interactive-section">
+                <h3>📝 Reflection Question</h3>
+                <p style="margin-bottom: 15px;">Based on what you've learned, what's the ONE thing you want to change most about your current email and task management?</p>
+                <textarea id="reflectionAnswer" placeholder="Write your reflection here...
+
+For example:
+- I want to stop feeling anxious when I see my inbox
+- I want to trust that I won't forget important tasks
+- I want to reduce the mental energy I spend on remembering things
+- I want to feel more in control of my workload
+- etc."></textarea>
+            </div>
+            
+            <div style="text-align: center; margin: 40px 0;">
+                <p style="font-size: 1.2em; margin-bottom: 20px;">Ready to learn the GTD framework that will transform your productivity?</p>
+                <button class="btn" onclick="completeModule()" style="font-size: 1.2em; padding: 15px 30px;">
+                    Complete Module 1.1 & Continue to 1.2 →
+                </button>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="navigation">
+            <button class="btn btn-secondary" id="prevBtn" onclick="previousSlide()" disabled>← Previous</button>
+            <div class="progress-bar">
+                <div class="progress-fill" id="progressFill" style="width: 14.3%;"></div>
+            </div>
+            <button class="btn" id="nextBtn" onclick="nextSlide()">Next →</button>
+        </div>
+    </div>
+
+    <script>
+        let currentSlideIndex = 0;
+        const totalSlides = 7;
+        let openLoopsCount = 0;
+        let selectedStressLevel = null;
+        let selectedFeeling = null;
+
+        // Update slide counter and progress
+        function updateProgress() {
+            document.getElementById('currentSlide').textContent = currentSlideIndex + 1;
+            document.getElementById('totalSlides').textContent = totalSlides;
+            document.getElementById('progressFill').style.width = ((currentSlideIndex + 1) / totalSlides * 100) + '%';
+            
+            // Update navigation buttons
+            document.getElementById('prevBtn').disabled = currentSlideIndex === 0;
+            document.getElementById('nextBtn').textContent = currentSlideIndex === totalSlides - 1 ? 'Complete Module' : 'Next →';
+        }
+
+        function showSlide(index) {
+            // Hide all slides
+            const slides = document.querySelectorAll('.slide');
+            slides.forEach(slide => slide.classList.remove('active'));
+            
+            // Show current slide
+            document.getElementById(`slide${index + 1}`).classList.add('active');
+            
+            updateProgress();
+        }
+
+        function nextSlide() {
+            if (currentSlideIndex < totalSlides - 1) {
+                currentSlideIndex++;
+                showSlide(currentSlideIndex);
+            } else {
+                completeModule();
+            }
+        }
+
+        function previousSlide() {
+            if (currentSlideIndex > 0) {
+                currentSlideIndex--;
+                showSlide(currentSlideIndex);
+            }
+        }
+
+        // Open Loops Counter
+        function adjustCount(change) {
+            openLoopsCount = Math.max(0, openLoopsCount + change);
+            document.getElementById('openLoopsCount').textContent = openLoopsCount;
+            
+            // Show feedback based on count
+            const feedback = document.getElementById('countFeedback');
+            let message = '';
+            
+            if (openLoopsCount === 0) {
+                message = `<div style="background: #d1fae5; padding: 20px; border-radius: 10px; color: #065f46;">
+                    <strong>🎉 Amazing!</strong> Either you're incredibly organized, or maybe you haven't thought of everything yet. Most people have 20-100+ open loops!
+                </div>`;
+            } else if (openLoopsCount <= 10) {
+                message = `<div style="background: #dbeafe; padding: 20px; border-radius: 10px; color: #1e40af;">
+                    <strong>👍 Not bad!</strong> ${openLoopsCount} open loops is manageable, but still consuming mental energy. Let's get these organized!
+                </div>`;
+            } else if (openLoopsCount <= 25) {
+                message = `<div style="background: #fef3c7; padding: 20px; border-radius: 10px; color: #92400e;">
+                    <strong>⚠️ Getting Heavy</strong> ${openLoopsCount} open loops - your brain is working overtime! No wonder you feel stressed.
+                </div>`;
+            } else {
+                message = `<div style="background: #fee2e2; padding: 20px; border-radius: 10px; color: #991b1b;">
+                    <strong>🚨 Mental Overload!</strong> ${openLoopsCount} open loops - this is exactly why you feel overwhelmed! Your brain wasn't designed to track this much.
+                </div>`;
+            }
+            
+            feedback.innerHTML = message;
+            feedback.classList.remove('hidden');
+        }
+
+        function resetCount() {
+            openLoopsCount = 0;
+            document.getElementById('openLoopsCount').textContent = '0';
+            document.getElementById('countFeedback').classList.add('hidden');
+        }
+
+        // Stress Level Selection
+        function selectStressLevel(level) {
+            selectedStressLevel = level;
+            
+            // Update visual selection
+            document.querySelectorAll('.stress-level').forEach(el => el.classList.remove('selected'));
+            document.querySelector(`[data-level="${level}"]`).classList.add('selected');
+            
+            // Show feedback
+            const feedback = document.getElementById('stressLevelFeedback');
+            let message = '';
+            
+            if (level <= 3) {
+                message = `<div style="background: #d1fae5; padding: 20px; border-radius: 10px; color: #065f46;">
+                    <strong>🌟 Great!</strong> A stress level of ${level}/10 is fantastic! You're already managing email well, but we can make it even better.
+                </div>`;
+            } else if (level <= 6) {
+                message = `<div style="background: #fef3c7; padding: 20px; border-radius: 10px; color: #92400e;">
+                    <strong>📈 Room for Improvement</strong> A ${level}/10 suggests email is causing some stress. The good news? This is exactly what GTD + Outlook can fix!
+                </div>`;
+            } else {
+                message = `<div style="background: #fee2e2; padding: 20px; border-radius: 10px; color: #991b1b;">
+                    <strong>🚨 High Stress Alert!</strong> A ${level}/10 means email is seriously impacting your well-being. You're in the right place - we're going to transform this!
+                </div>`;
+            }
+            
+            feedback.innerHTML = message;
+            feedback.classList.remove('hidden');
+        }
+
+        // Feeling Selection
+        function selectFeeling(feeling) {
+            selectedFeeling = feeling;
+            
+            // Update visual selection
+            document.querySelectorAll('.emoji-option').forEach(el => el.classList.remove('selected'));
+            document.querySelector(`[data-feeling="${feeling}"]`).classList.add('selected');
+            
+            // Show feedback
+            const feedback = document.getElementById('feelingFeedback');
+            let message = '';
+            
+            switch(feeling) {
+                case 'excited':
+                    message = `<div style="background: #d1fae5; padding: 15px; border-radius: 8px; color: #065f46; margin-top: 15px;">
+                        <strong>🌟 Wow!</strong> You're one of the rare people who feels excited about email! Let's channel that energy into maximum productivity.
+                    </div>`;
+                    break;
+                case 'neutral':
+                    message = `<div style="background: #f3f4f6; padding: 15px; border-radius: 8px; color: #374151; margin-top: 15px;">
+                        <strong>😐 Neutral Zone</strong> Not terrible, but not great either. We can definitely make email feel more positive and productive for you.
+                    </div>`;
+                    break;
+                case 'anxious':
+                    message = `<div style="background: #fef3c7; padding: 15px; border-radius: 8px; color: #92400e; margin-top: 15px;">
+                        <strong>😰 Anxiety Alert</strong> That anxious feeling is your brain's response to all those open loops. We're going to fix that!
+                    </div>`;
+                    break;
+                case 'overwhelmed':
+                    message = `<div style="background: #fee2e2; padding: 15px; border-radius: 8px; color: #991b1b; margin-top: 15px;">
+                        <strong>😵 Overwhelm Mode</strong> That overwhelmed feeling is exactly what happens when your system can't handle the input. Time for a better system!
+                    </div>`;
+                    break;
+            }
+            
+            feedback.innerHTML = message;
+            feedback.classList.remove('hidden');
+        }
+
+        // Module Completion
+        function completeModule() {
+            // Collect user data for personalization
+            const userData = {
+                openLoopsCount: openLoopsCount,
+                stressLevel: selectedStressLevel,
+                feeling: selectedFeeling,
+                reflection: document.getElementById('reflectionAnswer')?.value || '',
+                openLoopsList: document.getElementById('openLoopsList')?.value || ''
+            };
+            
+            // Store in memory for course personalization
+            window.moduleData = window.moduleData || {};
+            window.moduleData.module1_1 = userData;
+            
+            // Show completion message
+            alert(`🎉 Module 1.1 Complete!\n\nYour Progress:\n• Open Loops Identified: ${openLoopsCount}\n• Current Stress Level: ${selectedStressLevel || 'Not rated'}/10\n• Ready for Module 1.2: The GTD Framework\n\nGreat job taking the first step toward productivity mastery!`);
+            
+            // In a real LMS, this would navigate to the next module
+            console.log('User data collected:', userData);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                previousSlide();
+            }
+        });
+
+        // Auto-save user inputs
+        function autoSave() {
+            const openLoopsList = document.getElementById('openLoopsList');
+            const reflectionAnswer = document.getElementById('reflectionAnswer');
+            
+            if (openLoopsList) {
+                openLoopsList.addEventListener('input', function() {
+                    // Auto-save to local storage would go here in a real system
+                    console.log('Auto-saving open loops list...');
+                });
+            }
+            
+            if (reflectionAnswer) {
+                reflectionAnswer.addEventListener('input', function() {
+                    // Auto-save to local storage would go here in a real system
+                    console.log('Auto-saving reflection...');
+                });
+            }
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            updateProgress();
+            autoSave();
+        });
+
+        // Add some interactive effects
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate stat cards on load
+            const statCards = document.querySelectorAll('.stat-card');
+            statCards.forEach((card, index) => {
+                setTimeout(() => {
+                    card.style.transform = 'scale(1.05)';
+                    setTimeout(() => {
+                        card.style.transform = 'scale(1)';
+                    }, 200);
+                }, index * 200);
+            });
+        });
+    </script>
+</body>
+</html>
