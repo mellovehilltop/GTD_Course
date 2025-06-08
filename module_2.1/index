@@ -1,0 +1,1885 @@
+<div class="processing-stat">
+                    <span class="processing-number remaining" id="remainingCount">15</span>
+                    <div>Remaining</div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin: 20px 0;" id="simulatorControls">
+                <button class="btn btn-secondary" onclick="resetSimulator()">Reset Practice</button>
+                <button class="btn btn-success" onclick="showProcessingTips()" style="margin-left: 10px;">Get Processing Tips</button>
+            </div>
+        </div>
+
+        <!-- Slide 5: Daily Processing Ritual -->
+        <div class="slide" id="slide5">
+            <h2>⏰ Your Daily Processing Ritual</h2>
+            
+            <div class="insight-box">
+                <h3>The 20-Minute Transformation</h3>
+                <p style="font-size: 1.1em;">
+                    Research shows that 20 minutes of focused email processing is more effective than checking email sporadically throughout the day. Here's your exact daily ritual:
+                </p>
+            </div>
+            
+            <div class="timer-widget">
+                <h3>🎯 Processing Timer</h3>
+                <div class="timer-display" id="timerDisplay">20:00</div>
+                <p>Use this timer for your daily processing sessions</p>
+                
+                <div class="timer-controls">
+                    <button class="btn" onclick="startTimer()">Start Session</button>
+                    <button class="btn btn-secondary" onclick="pauseTimer()">Pause</button>
+                    <button class="btn btn-secondary" onclick="resetTimer()">Reset</button>
+                </div>
+                
+                <div id="timerStatus" style="margin-top: 15px; font-size: 1.1em; font-weight: bold;">
+                    Ready to start your processing session
+                </div>
+            </div>
+            
+            <div class="step-guide">
+                <div class="step-item" id="step1">
+                    <h4>Prepare Your Environment</h4>
+                    <ul style="margin: 10px 0 10px 20px;">
+                        <li>Close all other applications and browser tabs</li>
+                        <li>Turn off notifications (phone on silent)</li>
+                        <li>Have your calendar open for scheduling</li>
+                        <li>Set your timer for 20 minutes</li>
+                    </ul>
+                    <p><strong>Time Investment:</strong> 2 minutes</p>
+                </div>
+                
+                <div class="step-item" id="step2">
+                    <h4>Process Top to Bottom</h4>
+                    <ul style="margin: 10px 0 10px 20px;">
+                        <li>Start with the oldest email (top of list)</li>
+                        <li>Process one email completely before moving to next</li>
+                        <li>Never return an email to the inbox</li>
+                        <li>Apply 4 D's framework to each email</li>
+                    </ul>
+                    <p><strong>Time Investment:</strong> 15 minutes</p>
+                </div>
+                
+                <div class="step-item" id="step3">
+                    <h4>Process to Zero or Time</h4>
+                    <ul style="margin: 10px 0 10px 20px;">
+                        <li>Continue until inbox is empty OR timer rings</li>
+                        <li>If time runs out, schedule next session</li>
+                        <li>Mark your stopping point for next session</li>
+                        <li>Never leave emails "half-processed"</li>
+                    </ul>
+                    <p><strong>Time Investment:</strong> Until completion</p>
+                </div>
+                
+                <div class="step-item" id="step4">
+                    <h4>Quick Review and Plan</h4>
+                    <ul style="margin: 10px 0 10px 20px;">
+                        <li>Review flagged items and due dates</li>
+                        <li>Check calendar for next day's appointments</li>
+                        <li>Plan your next processing session</li>
+                        <li>Feel the satisfaction of an empty inbox!</li>
+                    </ul>
+                    <p><strong>Time Investment:</strong> 3 minutes</p>
+                </div>
+            </div>
+            
+            <div class="interactive-section">
+                <h3>🕐 Optimal Processing Times</h3>
+                <p style="margin-bottom: 15px;">Choose processing times that work with your natural energy and schedule:</p>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px;">
+                    <div style="background: #f0f9ff; padding: 15px; border-radius: 8px; border-left: 5px solid #3b82f6;">
+                        <h4>🌅 Early Morning (7-9 AM)</h4>
+                        <p><strong>Best for:</strong> High energy, few interruptions, sets positive tone for day</p>
+                    </div>
+                    
+                    <div style="background: #f0fdf4; padding: 15px; border-radius: 8px; border-left: 5px solid #10b981;">
+                        <h4>🍽️ Post-Lunch (1-2 PM)</h4>
+                        <p><strong>Best for:</strong> Natural energy dip, routine task perfect for this time</p>
+                    </div>
+                    
+                    <div style="background: #fef5e7; padding: 15px; border-radius: 8px; border-left: 5px solid #f59e0b;">
+                        <h4>🌆 End of Day (4-5 PM)</h4>
+                        <p><strong>Best for:</strong> Clearing the deck, preparing for tomorrow, closure</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Setting Up Outlook for Processing -->
+        <div class="slide" id="slide6">
+            <h2>⚙️ Configure Outlook for Optimal Processing</h2>
+            
+            <div class="insight-box">
+                <h3>Setup = Success</h3>
+                <p>The right Outlook configuration makes processing effortless. Let's optimize your setup for maximum efficiency.</p>
+            </div>
+            
+            <div class="interactive-section">
+                <h3>📧 Essential Outlook Settings</h3>
+                <p style="margin-bottom: 20px;">Follow this checklist to configure Outlook for GTD processing:</p>
+                
+                <div class="step-guide">
+                    <div class="step-item" onclick="toggleStep(this)">
+                        <h4>Turn Off Desktop Notifications</h4>
+                        <p>File → Options → Mail → Message arrival → Uncheck all notification options</p>
+                        <div style="background: #f8f9fa; padding: 10px; border-radius: 5px; margin: 10px 0; font-size: 0.9em;">
+                            <strong>Why:</strong> Notifications break your focus and create reactive email checking habits.
+                        </div>
+                    </div>
+                    
+                    <div class="step-item" onclick="toggleStep(this)">
+                        <h4>Set Up Reading Pane</h4>
+                        <p>View → Reading Pane → Right (or Bottom if you prefer)</p>
+                        <div style="background: #f8f9fa; padding: 10px; border-radius: 5px; margin: 10px 0; font-size: 0.9em;">
+                            <strong>Why:</strong> See email content without double-clicking, speeds up processing.
+                        </div>
+                    </div>
+                    
+                    <div class="step-item" onclick="toggleStep(this)">
+                        <h4>Create Quick Steps</h4>
+                        <p>Home → Quick Steps → Create New → Set up Delete & Archive actions</p>
+                        <div style="background: #f8f9fa; padding: 10px; border-radius: 5px; margin: 10px 0; font-size: 0.9em;">
+                            <strong>Why:</strong> One-click processing for common actions saves time and reduces decision fatigue.
+                        </div>
+                    </div>
+                    
+                    <div class="step-item" onclick="toggleStep(this)">
+                        <h4>Configure Send/Receive Groups</h4>
+                        <p>Send/Receive → Send/Receive Groups → Define Send/Receive Groups</p>
+                        <div style="background: #f8f9fa; padding: 10px; border-radius: 5px; margin: 10px 0; font-size: 0.9em;">
+                            <strong>Why:</strong> Control when emails arrive instead of constant interruption.
+                        </div>
+                    </div>
+                    
+                    <div class="step-item" onclick="toggleStep(this)">
+                        <h4>Set Up Categories</h4>
+                        <p>Home → Categorize → All Categories → Create @Calls, @Computer, @Meetings, @Waiting</p>
+                        <div style="background: #f8f9fa; padding: 10px; border-radius: 5px; margin: 10px 0; font-size: 0.9em;">
+                            <strong>Why:</strong> GTD contexts help you see what actions you can take right now.
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="rule-examples">
+                <div class="rule-card">
+                    <div class="rule-title">🎯 Quick Steps Setup</div>
+                    <div class="rule-description">Create these Quick Steps for faster processing:</div>
+                    <div class="rule-example">
+                        Delete & Archive: Delete → Move to Archive<br>
+                        Flag for Follow-up: Flag → Add to Tasks<br>
+                        Forward & Archive: Forward → Move to Archive
+                    </div>
+                </div>
+                
+                <div class="rule-card">
+                    <div class="rule-title">🏷️ Essential Categories</div>
+                    <div class="rule-description">Set up these core GTD categories:</div>
+                    <div class="rule-example">
+                        @Calls (Red) - Phone calls to make<br>
+                        @Computer (Blue) - Computer-based tasks<br>
+                        @Meetings (Green) - Items to discuss<br>
+                        @Waiting (Yellow) - Waiting for responses
+                    </div>
+                </div>
+                
+                <div class="rule-card">
+                    <div class="rule-title">🔔 Notification Settings</div>
+                    <div class="rule-description">Minimize interruptions with smart settings:</div>
+                    <div class="rule-example">
+                        Desktop alerts: OFF<br>
+                        Sound notification: OFF<br>
+                        Envelope icon: OFF<br>
+                        VIP notifications: ON (for key contacts only)
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Common Processing Challenges -->
+        <div class="slide" id="slide7">
+            <h2>🚧 Overcoming Processing Challenges</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 20px; margin: 30px 0;">
+                <div style="background: #fef5e7; padding: 20px; border-radius: 10px; border-left: 5px solid #f6ad55;">
+                    <h4>😰 "I'm Overwhelmed by Volume"</h4>
+                    <p><strong>Solution:</strong></p>
+                    <ul style="margin: 10px 0;">
+                        <li>Start with just today's emails</li>
+                        <li>Declare "email bankruptcy" on old emails (archive all)</li>
+                        <li>Process for 20 minutes, then stop</li>
+                        <li>Focus on building the habit, not perfection</li>
+                    </ul>
+                </div>
+                
+                <div style="background: #f0f9ff; padding: 20px; border-radius: 10px; border-left: 5px solid #3b82f6;">
+                    <h4>🤔 "I Can't Decide What to Do"</h4>
+                    <p><strong>Solution:</strong></p>
+                    <ul style="margin: 10px 0;">
+                        <li>When in doubt, defer (flag for later)</li>
+                        <li>Use the 2-minute rule strictly</li>
+                        <li>Create templates for common responses</li>
+                        <li>Remember: any decision is better than no decision</li>
+                    </ul>
+                </div>
+                
+                <div style="background: #f0fdf4; padding: 20px; border-radius: 10px; border-left: 5px solid #10b981;">
+                    <h4>⏰ "I Don't Have Time for Processing"</h4>
+                    <p><strong>Solution:</strong></p>
+                    <ul style="margin: 10px 0;">
+                        <li>Start with 10 minutes instead of 20</li>
+                        <li>Use mobile for quick triage while commuting</li>
+                        <li>Block processing time on your calendar</li>
+                        <li>Remember: processing saves more time than it takes</li>
+                    </ul>
+                </div>
+                
+                <div style="background: #fdf2f8; padding: 20px; border-radius: 10px; border-left: 5px solid #ec4899;">
+                    <h4>🔄 "I Keep Checking Email Throughout the Day"</h4>
+                    <p><strong>Solution:</strong></p>
+                    <ul style="margin: 10px 0;">
+                        <li>Set specific email checking times (3x per day max)</li>
+                        <li>Close Outlook between processing sessions</li>
+                        <li>Use phone airplane mode during focused work</li>
+                        <li>Create a "checking email" calendar appointment</li>
+                    </ul>
+                </div>
+                
+                <div style="background: #f5f3ff; padding: 20px; border-radius: 10px; border-left: 5px solid #8b5cf6;">
+                    <h4>📱 "Mobile Processing is Clunky"</h4>
+                    <p><strong>Solution:</strong></p>
+                    <ul style="margin: 10px 0;">
+                        <li>Use mobile only for triage (delete, flag, quick replies)</li>
+                        <li>Set up swipe actions for common decisions</li>
+                        <li>Save complex processing for desktop</li>
+                        <li>Focus on capture and quick wins while mobile</li>
+                    </ul>
+                </div>
+                
+                <div style="background: #ecfdf5; padding: 20px; border-radius: 10px; border-left: 5px solid #059669;">
+                    <h4>👥 "My Team Doesn't Use This System"</h4>
+                    <p><strong>Solution:</strong></p>
+                    <ul style="margin: 10px 0;">
+                        <li>Use GTD internally, communicate clearly externally</li>
+                        <li>Set expectations about response times</li>
+                        <li>Lead by example with clear, actionable emails</li>
+                        <li>Share benefits you're experiencing</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="takeaway-highlight">
+                <strong>Remember:</strong> Every challenge is normal and temporary. The key is consistency, not perfection. Start small and build momentum.
+            </div>
+        </div>
+
+        <!-- Slide 8: Your First Inbox Zero Challenge -->
+        <div class="slide" id="slide8">
+            <h2>🏆 Your First Inbox Zero Challenge</h2>
+            
+            <div class="takeaway-highlight">
+                <h3>Module 2.1 Complete: Ready to Process!</h3>
+                <ul style="margin: 15px 0; text-align: left;">
+                    <li>Mastered the 4 D's processing framework</li>
+                    <li>Learned the optimal daily processing ritual</li>
+                    <li>Configured Outlook for maximum efficiency</li>
+                    <li>Identified and solved common challenges</li>
+                    <li>Ready to achieve your first inbox zero</li>
+                </ul>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin: 30px 0;">
+                <div style="background: #f0f9ff; padding: 25px; border-radius: 10px; border-left: 5px solid #3b82f6;">
+                    <h4>✅ What You've Learned</h4>
+                    <ul style="margin: 10px 0;">
+                        <li>The true meaning of inbox zero</li>
+                        <li>4 D's decision framework</li>
+                        <li>20-minute processing ritual</li>
+                        <li>Essential Outlook configuration</li>
+                    </ul>
+                </div>
+                
+                <div style="background: #f0fdf4; padding: 25px; border-radius: 10px; border-left: 5px solid #10b981;">
+                    <h4>🚀 Coming Up in Module 2.2</h4>
+                    <ul style="margin: 10px 0;">
+                        <li>Email rules and automation</li>
+                        <li>Smart filtering strategies</li>
+                        <li>Automated organization systems</li>
+                        <li>Advanced processing workflows</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="interactive-section">
+                <h3>🎯 Your 7-Day Inbox Zero Challenge</h3>
+                <p style="margin-bottom: 15px;">Commit to this 7-day challenge to build your inbox zero habit:</p>
+                
+                <div class="step-guide">
+                    <div class="step-item">
+                        <h4>Day 1-2: Foundation</h4>
+                        <p>Configure Outlook settings, set up categories, establish processing time</p>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>Day 3-4: Practice</h4>
+                        <p>Process emails using 4 D's, aim for 20-minute sessions, track progress</p>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>Day 5-6: Refinement</h4>
+                        <p>Optimize your system, create templates, adjust processing time if needed</p>
+                    </div>
+                    
+                    <div class="step-item">
+                        <h4>Day 7: Mastery</h4>
+                        <p>Achieve inbox zero, celebrate success, plan ongoing maintenance</p>
+                    </div>
+                </div>
+                
+                <div class="reflection-box">
+                    <h4>📝 Your Inbox Zero Commitment</h4>
+                    <textarea id="inboxZeroCommitment" placeholder="Write your commitment to achieving inbox zero...
+
+Consider including:
+- What time will you do daily processing?
+- What's your biggest anticipated challenge?
+- How will you measure success?
+- What will inbox zero mean for your productivity?
+- How will you celebrate when you achieve it?
+
+Example:
+'I commit to processing my inbox every day at 8 AM for 20 minutes. My biggest challenge will be resisting the urge to check email throughout the day, so I'll close Outlook after each session. Success means an empty inbox and no anxiety about forgotten emails. Inbox zero will give me confidence and peace of mind. I'll celebrate by treating myself to a nice lunch when I maintain it for a full week!'"></textarea>
+                </div>
+                
+                <div style="margin-top: 20px;">
+                    <h4>How confident are you about achieving inbox zero? (Rate 1-10)</h4>
+                    <div style="display: flex; justify-content: center; gap: 10px; margin: 15px 0; flex-wrap: wrap;">
+                        <button class="btn btn-secondary" onclick="setConfidence(1)" style="width: 40px; padding: 8px;">1</button>
+                        <button class="btn btn-secondary" onclick="setConfidence(2)" style="width: 40px; padding: 8px;">2</button>
+                        <button class="btn btn-secondary" onclick="setConfidence(3)" style="width: 40px; padding: 8px;">3</button>
+                        <button class="btn btn-secondary" onclick="setConfidence(4)" style="width: 40px; padding: 8px;">4</button>
+                        <button class="btn btn-secondary" onclick="setConfidence(5)" style="width: 40px; padding: 8px;">5</button>
+                        <button class="btn btn-secondary" onclick="setConfidence(6)" style="width: 40px; padding: 8px;">6</button>
+                        <button class="btn btn-secondary" onclick="setConfidence(7)" style="width: 40px; padding: 8px;">7</button>
+                        <button class="btn btn-secondary" onclick="setConfidence(8)" style="width: 40px; padding: 8px;">8</button>
+                        <button class="btn btn-secondary" onclick="setConfidence(9)" style="width: 40px; padding: 8px;">9</button>
+                        <button class="btn" onclick="setConfidence(10)" style="width: 40px; padding: 8px;">10</button>
+                    </div>
+                    <div id="confidenceFeedback" class="hidden">
+                        <!-- Confidence feedback will appear here -->
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin: 40px 0;">
+                <p style="font-size: 1.2em; margin-bottom: 20px;">Ready to automate your email workflow with smart rules?</p>
+                <button class="btn" onclick="completeModule()" style="font-size: 1.2em; padding: 15px 30px;">
+                    Complete Module 2.1 & Continue to 2.2 →
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation moved to bottom -->
+    <div class="navigation">
+        <button class="btn btn-secondary" id="prevBtn" onclick="previousSlide()" disabled>← Previous</button>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill" style="width: 12.5%;"></div>
+        </div>
+        <button class="btn" id="nextBtn" onclick="nextSlide()">Next →</button>
+    </div>
+
+    <script>
+        let currentSlideIndex = 0;
+        const totalSlides = 8;
+        let currentEmailIndex = -1;
+        let processingStats = { deleted: 0, completed: 0, flagged: 0, remaining: 15 };
+        let timerInterval = null;
+        let timeRemaining = 1200; // 20 minutes in seconds
+        let confidenceLevel = null;
+
+        // Sample emails for the simulator
+        const sampleEmails = [
+            {
+                from: "Newsletter Service",
+                subject: "Weekly Marketing Tips",
+                preview: "This week's top marketing strategies...",
+                time: "2 days ago",
+                priority: "low",
+                correctAction: "delete",
+                explanation: "Newsletter with no specific action required - DELETE"
+            },
+            {
+                from: "Sarah Johnson",
+                subject: "Quick question about meeting time",
+                preview: "Can we move tomorrow's meeting to 3 PM?",
+                time: "1 hour ago",
+                priority: "medium",
+                correctAction: "do",
+                explanation: "Simple scheduling change, takes < 2 minutes - DO"
+            },
+            {
+                from: "IT Support",
+                subject: "Password reset required",
+                preview: "Your password will expire in 3 days...",
+                time: "Today",
+                priority: "medium",
+                correctAction: "do",
+                explanation: "Quick password reset, takes < 2 minutes - DO"
+            },
+            {
+                from: "Project Manager",
+                subject: "Budget proposal review needed",
+                preview: "Please review the attached 15-page budget...",
+                time: "Yesterday",
+                priority: "high",
+                correctAction: "defer",
+                explanation: "Complex review task, will take > 2 minutes - DEFER"
+            },
+            {
+                from: "John Smith",
+                subject: "Client presentation feedback",
+                preview: "I need your input on the client presentation...",
+                time: "3 hours ago",
+                priority: "medium",
+                correctAction: "delegate",
+                explanation: "Better handled by team lead - DELEGATE"
+            },
+            {
+                from: "LinkedIn",
+                subject: "You have 5 new connection requests",
+                preview: "People you may know want to connect...",
+                time: "Today",
+                priority: "low",
+                correctAction: "delete",
+                explanation: "Social media notification, no immediate action needed - DELETE"
+            },
+            {
+                from: "Boss",
+                subject: "Urgent: Client call at 2 PM",
+                preview: "We need to prepare for the emergency client call...",
+                time: "30 min ago",
+                priority: "high",
+                correctAction: "do",
+                explanation: "Urgent and quick response needed - DO"
+            },
+            {
+                from: "Finance Team",
+                subject: "Expense report submission",
+                preview: "Monthly expense reports are due by Friday...",
+                time: "2 days ago",
+                priority: "medium",
+                correctAction: "defer",
+                explanation: "Will take time to gather receipts and complete - DEFER"
+            },
+            {
+                from: "Marketing Team",
+                subject: "Campaign results data",
+                preview: "Please review the attached analytics report...",
+                time: "4 hours ago",
+                priority: "medium",
+                correctAction: "delegate",
+                explanation: "Better handled by data analyst - DELEGATE"
+            },
+            {
+                from: "Amazon",
+                subject: "Your order has shipped",
+                preview: "Order #12345 is on its way...",
+                time: "Yesterday",
+                priority: "low",
+                correctAction: "delete",
+                explanation: "Confirmation email, no action needed - DELETE"
+            },
+            {
+                from: "Team Lead",
+                subject: "Quick approval needed",
+                preview: "Can you approve the vacation request?",
+                time: "1 hour ago",
+                priority: "medium",
+                correctAction: "do",
+                explanation: "Simple approval, takes < 2 minutes - DO"
+            },
+            {
+                from: "Conference Organizer",
+                subject: "Speaking opportunity",
+                preview: "We'd love to have you speak at our conference...",
+                time: "3 days ago",
+                priority: "medium",
+                correctAction: "defer",
+                explanation: "Important decision requiring thought - DEFER"
+            },
+            {
+                from: "Vendor",
+                subject: "Invoice #4567",
+                preview: "Please find attached invoice for services...",
+                time: "Today",
+                priority: "medium",
+                correctAction: "delegate",
+                explanation: "Should be handled by accounting - DELEGATE"
+            },
+            {
+                from: "Spam Filter",
+                subject: "Congratulations! You've won $1000!",
+                preview: "Click here to claim your prize...",
+                time: "5 hours ago",
+                priority: "low",
+                correctAction: "delete",
+                explanation: "Obviously spam - DELETE"
+            },
+            {
+                from: "Assistant",
+                subject: "Calendar conflict resolved",
+                preview: "I've moved your 3 PM meeting to tomorrow...",
+                time: "2 hours ago",
+                priority: "low",
+                correctAction: "delete",
+                explanation: "FYI message, no action needed - DELETE"
+            }
+        ];
+
+        // 4 D's detailed explanations
+        const dDetails = {
+            delete: {
+                title: "🗑️ DELETE: Not Actionable, No Value",
+                content: `
+                    <h4>When to DELETE:</h4>
+                    <ul>
+                        <li><strong>Spam and junk:</strong> Obvious promotional emails you didn't request</li>
+                        <li><strong>FYI emails:</strong> Information that requires no action or response</li>
+                        <li><strong>Outdated information:</strong> Old newsletters, expired announcements</li>
+                        <li><strong>Duplicate emails:</strong> CC'd on something already handled</li>
+                        <li><strong>Social media notifications:</strong> LinkedIn updates, Facebook notifications</li>
+                    </ul>
+                    <h4>💡 Pro Tip:</h4>
+                    <p>When in doubt, ask: "Will I ever need to reference this again?" If no, delete it. Digital storage isn't free—it costs mental energy to maintain.</p>
+                    <h4>Example:</h4>
+                    <p><em>"Weekly newsletter from a service I no longer use"</em> → DELETE</p>
+                `
+            },
+            do: {
+                title: "⚡ DO: Less Than 2 Minutes",
+                content: `
+                    <h4>When to DO immediately:</h4>
+                    <ul>
+                        <li><strong>Quick responses:</strong> Yes/no answers, brief confirmations</li>
+                        <li><strong>Simple forwards:</strong> Sending to the right person with a note</li>
+                        <li><strong>Calendar additions:</strong> Adding meetings or appointments</li>
+                        <li><strong>Quick approvals:</strong> Expense reports, time-off requests</li>
+                        <li><strong>Brief status updates:</strong> "Project is on track" type responses</li>
+                    </ul>
+                    <h4>💡 Pro Tip:</h4>
+                    <p>If you find yourself spending more than 2 minutes, STOP. Flag it for later processing. The 2-minute rule prevents processing sessions from derailing.</p>
+                    <h4>Example:</h4>
+                    <p><em>"Can we move our meeting from 2 PM to 3 PM tomorrow?"</em> → DO (Quick calendar change)</p>
+                `
+            },
+            delegate: {
+                title: "👥 DELEGATE: Someone Else Should Handle",
+                content: `
+                    <h4>When to DELEGATE:</h4>
+                    <ul>
+                        <li><strong>Outside your expertise:</strong> Technical issues for IT, legal questions for lawyers</li>
+                        <li><strong>Someone else's responsibility:</strong> Direct reports' decisions, other departments' tasks</li>
+                        <li><strong>Development opportunities:</strong> Tasks that would help team members grow</li>
+                        <li><strong>Lower-value activities:</strong> Administrative tasks that others can handle</li>
+                        <li><strong>Information requests:</strong> Questions better answered by the source</li>
+                    </ul>
+                    <h4>💡 Pro Tip:</h4>
+                    <p>When delegating, be specific about what you need and when. Forward with clear instructions and add to your @Waiting list to follow up.</p>
+                    <h4>Example:</h4>
+                    <p><em>"Technical error in the database system"</em> → DELEGATE to IT team</p>
+                `
+            },
+            defer: {
+                title: "📅 DEFER: Important but Takes Time",
+                content: `
+                    <h4>When to DEFER:</h4>
+                    <ul>
+                        <li><strong>Project-related work:</strong> Tasks requiring focused time and attention</li>
+                        <li><strong>Important decisions:</strong> Choices that need careful consideration</li>
+                        <li><strong>Creative tasks:</strong> Writing, planning, strategizing</li>
+                        <li><strong>Learning activities:</strong> Reading reports, watching training videos</li>
+                    </ul>
+                    <h4>💡 Pro Tip:</h4>
+                    <p>Flag deferred emails and categorize them by context (@Computer, @Calls) or project. Set due dates for items with deadlines.</p>
+                    <h4>Example:</h4>
+                    <p><em>"Please review this 20-page strategic plan and provide detailed feedback"</em> → DEFER (Flag for focused work time)</p>
+                `
+            }
+        };
+
+        // Update slide counter and progress
+        function updateProgress() {
+            document.getElementById('currentSlide').textContent = currentSlideIndex + 1;
+            document.getElementById('totalSlides').textContent = totalSlides;
+            document.getElementById('progressFill').style.width = ((currentSlideIndex + 1) / totalSlides * 100) + '%';
+            
+            // Update navigation buttons
+            document.getElementById('prevBtn').disabled = currentSlideIndex === 0;
+            document.getElementById('nextBtn').textContent = currentSlideIndex === totalSlides - 1 ? 'Complete Module' : 'Next →';
+        }
+
+        function showSlide(index) {
+            // Hide all slides
+            const slides = document.querySelectorAll('.slide');
+            slides.forEach(slide => slide.classList.remove('active'));
+            
+            // Show current slide
+            document.getElementById(`slide${index + 1}`).classList.add('active');
+            
+            updateProgress();
+        }
+
+        function nextSlide() {
+            if (currentSlideIndex < totalSlides - 1) {
+                currentSlideIndex++;
+                showSlide(currentSlideIndex);
+            } else {
+                completeModule();
+            }
+        }
+
+        function previousSlide() {
+            if (currentSlideIndex > 0) {
+                currentSlideIndex--;
+                showSlide(currentSlideIndex);
+            }
+        }
+
+        // Show 4 D's details
+        function showDDetails(dType) {
+            // Remove active class from all D options
+            document.querySelectorAll('.d-option').forEach(option => option.classList.remove('selected'));
+            
+            // Add active class to selected option
+            event.target.closest('.d-option').classList.add('selected');
+            
+            // Show details
+            const detailsDiv = document.getElementById('dDetails');
+            const details = dDetails[dType];
+            
+            detailsDiv.innerHTML = `
+                <h3>${details.title}</h3>
+                ${details.content}
+            `;
+            
+            detailsDiv.classList.add('active');
+        }
+
+        // Initialize email simulator
+        function initializeEmailSimulator() {
+            const emailList = document.getElementById('emailList');
+            if (!emailList) return;
+            
+            emailList.innerHTML = '';
+            
+            sampleEmails.forEach((email, index) => {
+                const emailDiv = document.createElement('div');
+                emailDiv.className = 'email-item';
+                emailDiv.onclick = () => selectEmail(index);
+                
+                emailDiv.innerHTML = `
+                    <div class="email-priority priority-${email.priority}"></div>
+                    <div class="email-content">
+                        <div class="email-from">${email.from}</div>
+                        <div class="email-subject">${email.subject}</div>
+                        <div class="email-preview">${email.preview}</div>
+                    </div>
+                    <div class="email-time">${email.time}</div>
+                `;
+                
+                emailList.appendChild(emailDiv);
+            });
+            
+            // Reset processing panel
+            document.getElementById('currentEmailSubject').textContent = 'Select an email to process';
+            document.getElementById('currentEmailContent').textContent = 'Click on an email above to see its content and processing options.';
+            document.getElementById('processingOptions').style.display = 'none';
+            document.getElementById('processingFeedback').classList.add('hidden');
+            
+            updateProcessingStats();
+        }
+
+        // Select email for processing
+        function selectEmail(index) {
+            currentEmailIndex = index;
+            const email = sampleEmails[index];
+            
+            // Update processing panel
+            document.getElementById('currentEmailSubject').textContent = email.subject;
+            document.getElementById('currentEmailContent').innerHTML = `
+                <p><strong>From:</strong> ${email.from}</p>
+                <p><strong>Preview:</strong> ${email.preview}</p>
+                <p><strong>Received:</strong> ${email.time}</p>
+                <p style="margin-top: 15px;">How would you process this email using the 4 D's?</p>
+            `;
+            
+            // Show processing options
+            document.getElementById('processingOptions').style.display = 'grid';
+            
+            // Highlight selected email
+            document.querySelectorAll('.email-item').forEach((item, i) => {
+                item.classList.remove('processing');
+                if (i === index) {
+                    item.classList.add('processing');
+                }
+            });
+        }
+
+        // Process selected email
+        function processEmail(action) {
+            if (currentEmailIndex === -1) return;
+            
+            const email = sampleEmails[currentEmailIndex];
+            const emailElement = document.querySelectorAll('.email-item')[currentEmailIndex];
+            const feedbackDiv = document.getElementById('processingFeedback');
+            
+            // Check if action is correct
+            const isCorrect = action === email.correctAction;
+            
+            // Update email appearance
+            emailElement.classList.remove('processing');
+            emailElement.classList.add(action === 'delete' ? 'deleted' : 'completed');
+            
+            // Update stats
+            if (action === 'delete') {
+                processingStats.deleted++;
+            } else if (action === 'do') {
+                processingStats.completed++;
+            } else {
+                processingStats.flagged++;
+            }
+            processingStats.remaining--;
+            
+            // Show feedback
+            feedbackDiv.innerHTML = `
+                <div style="background: ${isCorrect ? '#f0fdf4' : '#fef3c7'}; color: ${isCorrect ? '#065f46' : '#92400e'}; padding: 15px; border-radius: 8px; margin-top: 15px;">
+                    <h4>${isCorrect ? '✅ Correct!' : '💡 Learning Opportunity'}</h4>
+                    <p><strong>Your choice:</strong> ${action.toUpperCase()}</p>
+                    <p><strong>Recommended:</strong> ${email.correctAction.toUpperCase()}</p>
+                    <p><strong>Explanation:</strong> ${email.explanation}</p>
+                    ${!isCorrect ? '<p><em>Don\'t worry! Processing gets easier with practice.</em></p>' : ''}
+                </div>
+            `;
+            feedbackDiv.classList.remove('hidden');
+            
+            // Update stats display
+            updateProcessingStats();
+            
+            // Reset selection
+            currentEmailIndex = -1;
+            document.getElementById('processingOptions').style.display = 'none';
+            
+            // Check if inbox is complete
+            if (processingStats.remaining === 0) {
+                showInboxZeroSuccess();
+            }
+        }
+
+        // Update processing stats display
+        function updateProcessingStats() {
+            document.getElementById('deletedCount').textContent = processingStats.deleted;
+            document.getElementById('completedCount').textContent = processingStats.completed;
+            document.getElementById('flaggedCount').textContent = processingStats.flagged;
+            document.getElementById('remainingCount').textContent = processingStats.remaining;
+            document.getElementById('inboxCount').textContent = `${processingStats.remaining} emails`;
+        }
+
+        // Show inbox zero success
+        function showInboxZeroSuccess() {
+            const feedbackDiv = document.getElementById('processingFeedback');
+            feedbackDiv.innerHTML = `
+                <div style="background: linear-gradient(135deg, #10b981, #059669); color: white; padding: 25px; border-radius: 15px; margin-top: 15px; text-align: center;">
+                    <h3>🎉 Inbox Zero Achieved!</h3>
+                    <p style="font-size: 1.1em; margin: 15px 0;">Congratulations! You've successfully processed all emails. Notice how good it feels to have an empty inbox and know that everything has been consciously decided upon.</p>
+                    <p><strong>Pro Tip:</strong> This feeling of control and clarity is what you'll experience every day with consistent GTD processing!</p>
+                </div>
+            `;
+        }
+
+        // Reset simulator
+        function resetSimulator() {
+            processingStats = { deleted: 0, completed: 0, flagged: 0, remaining: 15 };
+            currentEmailIndex = -1;
+            initializeEmailSimulator();
+            document.getElementById('processingFeedback').classList.add('hidden');
+            document.getElementById('processingOptions').style.display = 'none';
+            document.getElementById('currentEmailSubject').textContent = 'Select an email to process';
+            document.getElementById('currentEmailContent').textContent = 'Click on an email above to see its content and processing options.';
+        }
+
+        // Show processing tips
+        function showProcessingTips() {
+            const feedbackDiv = document.getElementById('processingFeedback');
+            feedbackDiv.innerHTML = `
+                <div style="background: #f0f9ff; color: #1e40af; padding: 20px; border-radius: 10px; margin-top: 15px;">
+                    <h4>🎯 Processing Tips</h4>
+                    <ul style="margin: 10px 0;">
+                        <li><strong>Delete liberally:</strong> If you wouldn't actively look for this email later, delete it</li>
+                        <li><strong>Use the 2-minute rule:</strong> If unsure, time yourself doing the action</li>
+                        <li><strong>Delegate with context:</strong> Always add a note when forwarding</li>
+                        <li><strong>Defer with specifics:</strong> Flag with categories and due dates</li>
+                        <li><strong>Trust your decisions:</strong> Any decision is better than no decision</li>
+                        <li><strong>Practice makes perfect:</strong> The more you practice, the faster decisions become</li>
+                    </ul>
+                    <p style="margin-top: 15px;"><strong>Remember:</strong> Click on an email above, then use the action buttons to process it!</p>
+                </div>
+            `;
+            feedbackDiv.classList.remove('hidden');
+        }
+
+        // Timer functions
+        function startTimer() {
+            if (timerInterval) return; // Already running
+            
+            timerInterval = setInterval(() => {
+                timeRemaining--;
+                updateTimerDisplay();
+                
+                if (timeRemaining <= 0) {
+                    endTimerSession();
+                }
+            }, 1000);
+            
+            document.getElementById('timerStatus').textContent = 'Processing session in progress...';
+        }
+
+        function pauseTimer() {
+            if (timerInterval) {
+                clearInterval(timerInterval);
+                timerInterval = null;
+                document.getElementById('timerStatus').textContent = 'Session paused - click Start to continue';
+            }
+        }
+
+        function resetTimer() {
+            if (timerInterval) {
+                clearInterval(timerInterval);
+                timerInterval = null;
+            }
+            timeRemaining = 1200; // Reset to 20 minutes
+            updateTimerDisplay();
+            document.getElementById('timerStatus').textContent = 'Ready to start your processing session';
+        }
+
+        function updateTimerDisplay() {
+            const minutes = Math.floor(timeRemaining / 60);
+            const seconds = timeRemaining % 60;
+            document.getElementById('timerDisplay').textContent = 
+                `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        }
+
+        function endTimerSession() {
+            clearInterval(timerInterval);
+            timerInterval = null;
+            document.getElementById('timerStatus').innerHTML = 
+                '<span style="color: #10b981; font-weight: bold;">🎉 Session Complete! Time for a break.</span>';
+        }
+
+        // Toggle step completion
+        function toggleStep(stepElement) {
+            stepElement.classList.toggle('completed');
+        }
+
+        // Set confidence level
+        function setConfidence(level) {
+            confidenceLevel = level;
+            
+            // Update button styles
+            const buttons = document.querySelectorAll('button[onclick^="setConfidence"]');
+            buttons.forEach((btn, index) => {
+                if (index + 1 === level) {
+                    btn.style.background = '#e85a8a';
+                    btn.style.color = 'white';
+                    btn.classList.remove('btn-secondary');
+                    btn.classList.add('btn');
+                } else {
+                    btn.style.background = '#718096';
+                    btn.style.color = 'white';
+                    btn.classList.remove('btn');
+                    btn.classList.add('btn-secondary');
+                }
+            });
+            
+            // Show feedback
+            const feedback = document.getElementById('confidenceFeedback');
+            let message = '';
+            
+            if (level <= 4) {
+                message = `
+                    <div style="background: #fef3c7; color: #92400e; padding: 15px; border-radius: 8px; margin-top: 15px;">
+                        <strong>📚 Build Your Confidence (${level}/10)</strong>
+                        <p>Try the email simulator above a few more times, or start with just 10-minute processing sessions. Confidence comes with practice!</p>
+                    </div>
+                `;
+            } else if (level <= 7) {
+                message = `
+                    <div style="background: #dbeafe; color: #1e40af; padding: 15px; border-radius: 8px; margin-top: 15px;">
+                        <strong>👍 Good Confidence (${level}/10)</strong>
+                        <p>You're ready to start! Begin with shorter sessions and focus on building the daily habit before optimizing your system.</p>
+                    </div>
+                `;
+            } else {
+                message = `
+                    <div style="background: #d1fae5; color: #065f46; padding: 15px; border-radius: 8px; margin-top: 15px;">
+                        <strong>🚀 High Confidence (${level}/10)</strong>
+                        <p>Excellent! You're ready to achieve inbox zero. Start tomorrow morning and you'll be amazed at the results.</p>
+                    </div>
+                `;
+            }
+            
+            feedback.innerHTML = message;
+            feedback.classList.remove('hidden');
+        }
+
+        // Module completion
+        function completeModule() {
+            // Collect user data for personalization
+            const userData = {
+                simulatorCompleted: processingStats.remaining === 0,
+                processingStats: {...processingStats},
+                confidenceLevel: confidenceLevel,
+                inboxZeroCommitment: document.getElementById('inboxZeroCommitment')?.value || '',
+                completionTime: new Date().toISOString()
+            };
+            
+            // Store in memory for course personalization
+            window.moduleData = window.moduleData || {};
+            window.moduleData.module2_1 = userData;
+            
+            // Show completion message
+            let message = `🎉 Module 2.1 Complete!\n\nInbox Zero Mastery Achieved!\n\n`;
+            message += `Your Simulator Results:\n`;
+            message += `• Emails Processed: ${15 - processingStats.remaining}/15\n`;
+            message += `• Deleted: ${processingStats.deleted}\n`;
+            message += `• Completed: ${processingStats.completed}\n`;
+            message += `• Flagged: ${processingStats.flagged}\n`;
+            if (confidenceLevel) {
+                message += `• Confidence Level: ${confidenceLevel}/10\n`;
+            }
+            message += `\n🚀 Ready for Module 2.2: Email Rules and Automation\n\nTime to automate your email workflow!`;
+            
+            alert(message);
+            
+            // In a real LMS, this would navigate to the next module
+            console.log('User data collected:', userData);
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                e.preventDefault();
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                previousSlide();
+            }
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            updateProgress();
+            
+            // Hide simulator controls initially (will show on slide 4)
+            const simulatorControls = document.getElementById('simulatorControls');
+            if (simulatorControls) {
+                simulatorControls.style.display = 'none';
+            }
+            
+            // If starting on slide 4 for some reason, initialize
+            if (currentSlideIndex === 3) {
+                setTimeout(initializeEmailSimulator, 100);
+                if (simulatorControls) {
+                    simulatorControls.style.display = 'block';
+                }
+            }
+        });
+
+        // Initialize email simulator when slide 4 is shown
+        function showSlide(index) {
+            // Hide all slides
+            const slides = document.querySelectorAll('.slide');
+            slides.forEach(slide => slide.classList.remove('active'));
+            
+            // Show current slide
+            document.getElementById(`slide${index + 1}`).classList.add('active');
+            
+            // Show/hide simulator controls only on slide 4 (index 3)
+            const simulatorControls = document.getElementById('simulatorControls');
+            if (simulatorControls) {
+                if (index === 3) {
+                    simulatorControls.style.display = 'block';
+                    // Initialize email simulator when showing slide 4
+                    setTimeout(initializeEmailSimulator, 100);
+                } else {
+                    simulatorControls.style.display = 'none';
+                }
+            }
+            
+            updateProgress();
+        }
+
+        // Auto-save user inputs
+        function autoSave() {
+            const commitmentTextarea = document.getElementById('inboxZeroCommitment');
+            
+            if (commitmentTextarea) {
+                commitmentTextarea.addEventListener('input', function() {
+                    // Auto-save to local storage would go here in a real system
+                    console.log('Auto-saving inbox zero commitment...');
+                });
+            }
+        }
+
+        // Initialize auto-save
+        document.addEventListener('DOMContentLoaded', function() {
+            autoSave();
+        });
+    </script>
+</body>
+</html>
+                        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inbox Zero Strategy - Module 2.1</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 30px;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .header p {
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .slide {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            display: none;
+            animation: slideIn 0.5s ease-out;
+        }
+        
+        .slide.active {
+            display: block;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .slide h2 {
+            color: #4a5568;
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #e85a8a;
+            padding-bottom: 10px;
+        }
+        
+        .inbox-simulator {
+            background: #f8f9fa;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            margin: 30px 0;
+            overflow: hidden;
+        }
+        
+        .inbox-header {
+            background: #e85a8a;
+            color: white;
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .inbox-count {
+            background: rgba(255,255,255,0.3);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        
+        .email-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .email-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 1px solid #e2e8f0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .email-item:hover {
+            background: #f0f9ff;
+        }
+        
+        .email-item.processing {
+            background: #fef3c7;
+            border-left: 5px solid #f59e0b;
+        }
+        
+        .email-item.completed {
+            background: #f0fdf4;
+            border-left: 5px solid #10b981;
+            opacity: 0.7;
+        }
+        
+        .email-item.deleted {
+            background: #fee2e2;
+            border-left: 5px solid #ef4444;
+            opacity: 0.5;
+            text-decoration: line-through;
+        }
+        
+        .email-priority {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .priority-high { background: #ef4444; }
+        .priority-medium { background: #f59e0b; }
+        .priority-low { background: #10b981; }
+        
+        .email-content {
+            flex-grow: 1;
+            min-width: 0;
+        }
+        
+        .email-from {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .email-subject {
+            font-size: 0.95em;
+            margin-bottom: 3px;
+        }
+        
+        .email-preview {
+            font-size: 0.85em;
+            color: #666;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        
+        .email-time {
+            font-size: 0.8em;
+            color: #666;
+            margin-left: 15px;
+            flex-shrink: 0;
+        }
+        
+        .decision-panel {
+            background: white;
+            border: 2px solid #e85a8a;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            display: none;
+        }
+        
+        .decision-panel.active {
+            display: block;
+            animation: fadeIn 0.3s ease-in;
+        }
+        
+        .four-ds {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .d-option {
+            background: #e85a8a;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+            font-size: 1em;
+        }
+        
+        .d-option:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+        
+        .d-option.selected {
+            background: #10b981;
+            transform: scale(1.05);
+        }
+        
+        .d-title {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .d-description {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+        
+        .timer-widget {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .timer-display {
+            font-size: 3em;
+            font-weight: bold;
+            margin: 15px 0;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .timer-controls {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .btn {
+            background: #e85a8a;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(232, 90, 138, 0.4);
+        }
+        
+        .btn:hover {
+            background: #d63384;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(232, 90, 138, 0.6);
+        }
+        
+        .btn-secondary {
+            background: #718096;
+            box-shadow: 0 4px 15px rgba(113, 128, 150, 0.4);
+        }
+        
+        .btn-secondary:hover {
+            background: #4a5568;
+            box-shadow: 0 6px 20px rgba(113, 128, 150, 0.6);
+        }
+        
+        .btn-success {
+            background: #10b981;
+            box-shadow: 0 4px 15px rgba(16, 185, 129, 0.4);
+        }
+        
+        .btn-success:hover {
+            background: #059669;
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.6);
+        }
+        
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 30px;
+            background: white;
+            padding: 15px 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border: 2px solid #e85a8a;
+        }
+        
+        .progress-bar {
+            flex-grow: 1;
+            margin: 0 20px;
+            background: #e2e8f0;
+            height: 8px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: #e85a8a;
+            transition: width 0.3s ease;
+        }
+        
+        .slide-counter {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            padding: 10px 15px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        
+        .insight-box {
+            background: #e85a8a;
+            color: white;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 30px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .insight-box::before {
+            content: '💡';
+            font-size: 3em;
+            position: absolute;
+            top: -10px;
+            right: 20px;
+            opacity: 0.3;
+        }
+        
+        .takeaway-highlight {
+            background: #fef5e7;
+            border: 2px solid #f6ad55;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            position: relative;
+        }
+        
+        .takeaway-highlight::before {
+            content: '🎯';
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .stat-card {
+            background: white;
+            border: 2px solid #e85a8a;
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #e85a8a;
+            display: block;
+            margin-bottom: 10px;
+        }
+        
+        .stat-label {
+            font-size: 0.9em;
+            color: #666;
+        }
+        
+        .interactive-section {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 30px;
+            margin: 30px 0;
+            border-left: 5px solid #e85a8a;
+        }
+        
+        .step-guide {
+            counter-reset: step-counter;
+            margin: 30px 0;
+        }
+        
+        .step-item {
+            counter-increment: step-counter;
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 15px 0;
+            border-left: 5px solid #e85a8a;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .step-item:hover {
+            transform: translateX(5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .step-item::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: -15px;
+            top: 20px;
+            background: #e85a8a;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+        
+        .step-item.completed::before {
+            background: #10b981;
+            content: '✓';
+        }
+        
+        .processing-stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 20px 0;
+            text-align: center;
+        }
+        
+        .processing-stat {
+            padding: 15px;
+        }
+        
+        .processing-number {
+            font-size: 2em;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .deleted { color: #ef4444; }
+        .completed { color: #10b981; }
+        .flagged { color: #f59e0b; }
+        .remaining { color: #6b7280; }
+        
+        .reflection-box {
+            margin: 30px 0;
+        }
+        
+        .reflection-box textarea {
+            width: 100%;
+            min-height: 120px;
+            padding: 15px;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 1em;
+            resize: vertical;
+            transition: border-color 0.3s ease;
+        }
+        
+        .reflection-box textarea:focus {
+            outline: none;
+            border-color: #e85a8a;
+            box-shadow: 0 0 0 3px rgba(232, 90, 138, 0.1);
+        }
+        
+        .rule-examples {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        
+        .rule-card {
+            background: white;
+            border: 2px solid #e2e8f0;
+            border-radius: 10px;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .rule-card:hover {
+            border-color: #e85a8a;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .rule-title {
+            font-weight: bold;
+            color: #e85a8a;
+            margin-bottom: 10px;
+        }
+        
+        .rule-description {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .rule-example {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85em;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @media (max-width: 768px) {
+            .four-ds {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .timer-controls {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .processing-stats {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="slide-counter">
+        <span id="currentSlide">1</span> / <span id="totalSlides">8</span>
+    </div>
+    
+    <div class="container">
+        <div class="header">
+            <h1>Inbox Zero Strategy</h1>
+            <p>Master the Art of Email Processing with GTD</p>
+        </div>
+
+        <!-- Slide 1: Welcome to Hands-On Implementation -->
+        <div class="slide active" id="slide1">
+            <h2>🚀 Welcome to Hands-On Implementation</h2>
+            
+            <div class="insight-box">
+                <h3>From Theory to Practice</h3>
+                <p style="font-size: 1.2em; margin: 15px 0;">
+                    You've mastered the GTD foundation. Now it's time to transform your inbox from a source of stress into a trusted processing center. Today, you'll learn the exact system that has helped millions achieve inbox zero.
+                </p>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <span class="stat-number">28%</span>
+                    <div class="stat-label">of people check email every 15 minutes</div>
+                </div>
+                
+                <div class="stat-card">
+                    <span class="stat-number">11</span>
+                    <div class="stat-label">minutes to refocus after email interruption</div>
+                </div>
+                
+                <div class="stat-card">
+                    <span class="stat-number">144</span>
+                    <div class="stat-label">average emails in a typical inbox</div>
+                </div>
+                
+                <div class="stat-card">
+                    <span class="stat-number">0</span>
+                    <div class="stat-label">emails in your inbox after this module!</div>
+                </div>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin: 40px 0;">
+                <div style="text-align: center;">
+                    <div style="font-size: 4em; margin-bottom: 20px;">😰</div>
+                    <h3>Before: Inbox Chaos</h3>
+                    <ul style="text-align: left; margin: 15px 0;">
+                        <li>Hundreds of unread emails</li>
+                        <li>Important items buried in clutter</li>
+                        <li>Constant anxiety about forgetting something</li>
+                        <li>Email checking every few minutes</li>
+                        <li>Feeling overwhelmed and reactive</li>
+                    </ul>
+                </div>
+                
+                <div style="text-align: center;">
+                    <div style="font-size: 4em; margin-bottom: 20px;">😌</div>
+                    <h3>After: Inbox Zero Mastery</h3>
+                    <ul style="text-align: left; margin: 15px 0;">
+                        <li>Empty inbox, clear mind</li>
+                        <li>Every email processed to completion</li>
+                        <li>Confidence that nothing is forgotten</li>
+                        <li>Strategic email checking schedule</li>
+                        <li>Proactive and in control</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="takeaway-highlight">
+                <strong>Today's Goal:</strong> Master the GTD inbox processing workflow and achieve your first inbox zero.
+            </div>
+        </div>
+
+        <!-- Slide 2: Understanding Inbox Zero -->
+        <div class="slide" id="slide2">
+            <h2>🎯 What Inbox Zero Really Means</h2>
+            
+            <div class="insight-box">
+                <h3>Inbox Zero ≠ Zero Emails</h3>
+                <p style="font-size: 1.1em;">
+                    Inbox Zero isn't about having no emails. It's about having zero unprocessed emails. Every email in your inbox has been consciously decided upon and either acted on or appropriately organized.
+                </p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin: 40px 0;">
+                <div>
+                    <h3 style="color: #ef4444; text-align: center;">❌ Common Misconceptions</h3>
+                    <div style="background: #fee2e2; padding: 20px; border-radius: 10px; margin: 15px 0;">
+                        <ul style="line-height: 1.8;">
+                            <li><strong>"Delete everything"</strong> - Missing important information</li>
+                            <li><strong>"Respond immediately"</strong> - Reactive, not strategic</li>
+                            <li><strong>"Perfect organization"</strong> - Spending more time organizing than doing</li>
+                            <li><strong>"Never-ending task"</strong> - Requires constant maintenance</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 style="color: #10b981; text-align: center;">✅ GTD Inbox Zero Reality</h3>
+                    <div style="background: #f0fdf4; padding: 20px; border-radius: 10px; margin: 15px 0;">
+                        <ul style="line-height: 1.8;">
+                            <li><strong>"Process everything"</strong> - Every email gets a conscious decision</li>
+                            <li><strong>"Strategic action"</strong> - Do what's appropriate when it's appropriate</li>
+                            <li><strong>"Functional organization"</strong> - Simple system that actually works</li>
+                            <li><strong>"Daily habit"</strong> - 20 minutes of processing keeps you current</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="interactive-section">
+                <h3>📊 Inbox Zero Benefits</h3>
+                <p style="margin-bottom: 20px;">Research shows that achieving inbox zero provides measurable benefits:</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-number">37%</span>
+                        <div class="stat-label">reduction in email-related stress</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <span class="stat-number">45min</span>
+                        <div class="stat-label">daily time savings from focused processing</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <span class="stat-number">23%</span>
+                        <div class="stat-label">improvement in task completion rates</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <span class="stat-number">68%</span>
+                        <div class="stat-label">report feeling "more in control"</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="takeaway-highlight">
+                <strong>Key Insight:</strong> Inbox Zero is about decision-making, not email counting. Process everything to completion, then trust your system.
+            </div>
+        </div>
+
+        <!-- Slide 3: The 4 D's Framework -->
+        <div class="slide" id="slide3">
+            <h2>🔄 The 4 D's: Your Processing Framework</h2>
+            
+            <div style="text-align: center; margin: 30px 0;">
+                <p style="font-size: 1.2em; margin-bottom: 30px;">
+                    Every email gets exactly one of these four decisions. Click each option to learn when and how to use it:
+                </p>
+            </div>
+            
+            <div class="four-ds">
+                <div class="d-option" onclick="showDDetails('delete')">
+                    <div class="d-title">🗑️ DELETE</div>
+                    <div class="d-description">Not actionable, no reference value</div>
+                </div>
+                
+                <div class="d-option" onclick="showDDetails('do')">
+                    <div class="d-title">⚡ DO</div>
+                    <div class="d-description">Takes less than 2 minutes</div>
+                </div>
+                
+                <div class="d-option" onclick="showDDetails('delegate')">
+                    <div class="d-title">👥 DELEGATE</div>
+                    <div class="d-description">Someone else should handle this</div>
+                </div>
+                
+                <div class="d-option" onclick="showDDetails('defer')">
+                    <div class="d-title">📅 DEFER</div>
+                    <div class="d-description">Important but takes more than 2 minutes</div>
+                </div>
+            </div>
+            
+            <div id="dDetails" class="decision-panel">
+                <!-- Dynamic D details will appear here -->
+            </div>
+            
+            <div class="interactive-section">
+                <h3>🎯 The 2-Minute Rule</h3>
+                <p style="margin-bottom: 15px;">The 2-minute rule is the heart of efficient email processing:</p>
+                
+                <div style="background: linear-gradient(135deg, #ff9a9e, #fecfef); color: white; padding: 25px; border-radius: 15px; text-align: center; margin: 20px 0;">
+                    <h4 style="font-size: 1.3em; margin-bottom: 15px;">If it takes less than 2 minutes to complete, DO IT NOW</h4>
+                    <p>This prevents small tasks from accumulating into overwhelming piles while maintaining processing momentum.</p>
+                </div>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 20px 0;">
+                    <div>
+                        <h4>✅ Good 2-Minute Actions:</h4>
+                        <ul style="margin: 10px 0; line-height: 1.6;">
+                            <li>Quick "yes/no" responses</li>
+                            <li>Forwarding with brief note</li>
+                            <li>Adding to calendar</li>
+                            <li>Filing reference material</li>
+                            <li>Quick status updates</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4>❌ Don't Do in 2 Minutes:</h4>
+                        <ul style="margin: 10px 0; line-height: 1.6;">
+                            <li>Thoughtful, detailed responses</li>
+                            <li>Research or analysis</li>
+                            <li>Complex decision-making</li>
+                            <li>Creating documents</li>
+                            <li>Lengthy conversations</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Interactive Email Processing Simulator -->
+        <div class="slide" id="slide4">
+            <h2>🎮 Interactive Processing Simulator</h2>
+            
+            <div style="text-align: center; margin: 20px 0;">
+                <p style="font-size: 1.1em;">Practice the 4 D's with realistic email scenarios. Process each email using the correct decision:</p>
+            </div>
+            
+            <div class="inbox-simulator">
+                <div class="inbox-header">
+                    <h3>📧 Practice Inbox</h3>
+                    <div class="inbox-count" id="inboxCount">15 emails</div>
+                </div>
+                
+                <div class="email-list" id="emailList">
+                    <!-- Sample emails will be populated by JavaScript -->
+                </div>
+            </div>
+            
+            <div id="processingPanel" class="decision-panel active">
+                <h4 id="currentEmailSubject">Select an email to process</h4>
+                <p id="currentEmailContent">Click on an email above to see its content and processing options.</p>
+                
+                <div class="four-ds" id="processingOptions" style="display: none;">
+                    <button class="d-option" onclick="processEmail('delete')">
+                        <div class="d-title">🗑️ DELETE</div>
+                        <div class="d-description">Not useful</div>
+                    </button>
+                    
+                    <button class="d-option" onclick="processEmail('do')">
+                        <div class="d-title">⚡ DO NOW</div>
+                        <div class="d-description">< 2 minutes</div>
+                    </button>
+                    
+                    <button class="d-option" onclick="processEmail('delegate')">
+                        <div class="d-title">👥 DELEGATE</div>
+                        <div class="d-description">Forward</div>
+                    </button>
+                    
+                    <button class="d-option" onclick="processEmail('defer')">
+                        <div class="d-title">📅 DEFER</div>
+                        <div class="d-description">Flag for later</div>
+                    </button>
+                </div>
+                
+                <div id="processingFeedback" class="hidden">
+                    <!-- Processing feedback will appear here -->
+                </div>
+            </div>
+            
+            <div class="processing-stats">
+                <div class="processing-stat">
+                    <span class="processing-number deleted" id="deletedCount">0</span>
+                    <div>Deleted</div>
+                </div>
+                <div class="processing-stat">
+                    <span class="processing-number completed" id="completedCount">0</span>
+                    <div>Completed</div>
+                </div>
+                <div class="processing-stat">
+                    <span class="processing-number flagged" id="flaggedCount">0</span>
+                    <div>Flagged</div>
+                </div>
+                <div class="processing-stat">
